@@ -1,13 +1,12 @@
-FROM golang:1.14.2-alpine
-MAINTAINER furkan
+FROM alpine:3.5
 
-ENV SOURCES /go/src/cloud-native-go
+RUN mkdir /app
 
-COPY . ${SOURCES}
+COPY ./cloud-native-go /app/cloud-native-go
 
-RUN cd ${SOURCES} && CGO_ENABLED=0 go install
+RUN chmod +x /app/cloud-native-go
 
 ENV PORT 8080
 EXPOSE 8080
 
-ENTRYPOINT cloud-native-go
+ENTRYPOINT /app/cloud-native-go
