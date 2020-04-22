@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"os"
 
-	api "./api"
+	"cloud-native-go/api"
 )
 
 func main() {
